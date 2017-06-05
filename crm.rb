@@ -15,6 +15,9 @@ get '/about' do
   erb :about
 end
 
+get '/contacts/new' do
+  erb :new_contact
+end
 
 get '/contacts/:id' do
   @contact = Contact.find(params[:id].to_i) #params[:id] contains the id from the url.
@@ -24,6 +27,8 @@ get '/contacts/:id' do
   raise Sinatra::NotFound
   end
 end
+
+
 
 after do
   ActiveRecord::Base.connection.close
